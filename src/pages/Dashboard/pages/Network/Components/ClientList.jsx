@@ -15,7 +15,7 @@ function ClientList({ clients }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-start gap-5 max-w-full w-[1305px] max-md:flex-col">
+      <div className="flex justify-around gap-5 max-w-full w-[1305px] max-md:flex-col">
         {clients.map((client) => (
           <ClientCard key={client.id} {...client} />
         ))}

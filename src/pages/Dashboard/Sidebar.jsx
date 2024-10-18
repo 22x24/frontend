@@ -26,16 +26,19 @@ function Sidebar() {
               className={`flex items-center gap-4 py-4 px-2 mt-${index === 0 ? '0' : '6'} whitespace-nowrap cursor-pointer ${
                 activePage === item.name ? 'text-white bg-gray-700 rounded-md' : ''
               }`}
-              // onClick={() => setActivePage(item.name)}
               onClick={() => dispatch(setActivePage(item.name))} // Dispatch setActivePage action
-
             >
               <Icon as={item.icon} className="object-contain shrink-0 w-8 aspect-square" />
               <span className="text-left">{item.name}</span>
             </li>
           ))}
         </ul>
-        <button className="self-center mt-auto py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors duration-300">Logout</button>
+        <button
+          className="self-center mt-auto py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors duration-300"
+          onClick={() => window.location.href = '/'} // Navigate to home page
+        >
+          Logout
+        </button>
       </nav>
     </aside>
   );
