@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function BandwidthStat({ color, title, value }) {
   return (
@@ -12,11 +13,17 @@ function BandwidthStat({ color, title, value }) {
   );
 }
 
-function BandwidthStats() {
+function BandwidthStats({ id }) {
+  const user = useSelector((state) => state.users.find((user) => user.id === id));
+
+  if (!user) {
+    return <div>User not found</div>;
+  }
+
   const stats = [
-    { color: "green-500", title: "Max bandwidth", value: "10 Mbps" },
-    { color: "yellow-400", title: "Bandwidth limit", value: "5 Mbps" },
-    { color: "blue-500", title: "Highest MIR reached", value: "4 Mbps" },
+    { color: "green-500", title: "Max bandwidth", value: user.stats["Max bandwidth"] },
+    { color: "yellow-400", title: "Bandwidth limit", value: user.stats["Bandwidth limit"] },
+    { color: "blue-500", title: "Highest MIR reached", value: user.stats["Highest MIR reached"] },
   ];
 
   return (

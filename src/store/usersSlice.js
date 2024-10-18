@@ -9,17 +9,29 @@ const dummyUsers = [
       { time: '02:00', value: 5 },
       { time: '03:00', value: 2.5 },
       { time: '04:00', value: 1 },
-  ]},
+  ], stats: {
+      "Max bandwidth": "100 Mbps",
+      "Bandwidth limit": "50 Mbps",
+      "Highest MIR reached": "10 Mbps"
+  }},
   { id: 2, name: 'Jane Smith', maxBandwidth: '200 Mbps', bandwidthLimit: '100 Mbps', isOnline: false, history: [
       { time: '00:00', value: 12 },
       { time: '01:00', value: 8 },
       { time: '02:00', value: 4 },
-  ]},
+  ], stats: {
+      "Max bandwidth": "200 Mbps",
+      "Bandwidth limit": "100 Mbps",
+      "Highest MIR reached": "12 Mbps"
+  }},
   { id: 3, name: 'Alice Johnson', maxBandwidth: '150 Mbps', bandwidthLimit: '75 Mbps', isOnline: true, history: [
       { time: '00:00', value: 6 },
       { time: '01:00', value: 4 },
       { time: '02:00', value: 3 },
-  ]}
+  ], stats: {
+      "Max bandwidth": "150 Mbps",
+      "Bandwidth limit": "75 Mbps",
+      "Highest MIR reached": "6 Mbps"
+  }}
 ];
 
 // Global Server Information (dummy)

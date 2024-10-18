@@ -3,13 +3,14 @@ import { FaEdit, FaEye } from 'react-icons/fa'; // Assuming you are using react-
 import { useDispatch } from 'react-redux'; // Import useDispatch and useSelector
 import { setActivePage } from '../../../../store/pageSlice'; // Import the action
 
-function UserListItem({ name, maxBandwidth, bandwidthLimit }) {
+function UserListItem({id, name, maxBandwidth, bandwidthLimit }) {
   const dispatch = useDispatch();
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [newBandwidthLimit, setNewBandwidthLimit] = useState(bandwidthLimit);
 
   const handleClick = () => {
     dispatch(setActivePage("Stats"));
+    dispatch(setCurrentUserId(id));
   };
 
   const handleEditClick = () => {
