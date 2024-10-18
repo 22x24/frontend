@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaUser, FaNetworkWired, FaTachometerAlt } from 'react-icons/fa'; // Import icons
 import { MdNetworkCheck } from 'react-icons/md'; // Import a different network icon
 import Sidebar from './Sidebar';
@@ -6,12 +6,9 @@ import UserList from './pages/Users/UserList';
 import Stats from './pages/Users/UserStats/BandwidthConsumption';
 import NetworkPage from './pages/Network/NetworkPage';
 import DashboardPage from './pages/Dashboard/DashboardPage';
-import Pagination from './Pagination';
 import { useSelector } from 'react-redux'; // Import useSelector
 
-
 function Dashboard() {
-    // const [activePage, setActivePage] = useState('Users');
     const activePage = useSelector((state) => state.page.activePage); // Get activePage from Redux
 
     const renderActivePage = () => {
@@ -43,10 +40,11 @@ function Dashboard() {
     };
 
     return (
-        <div className="overflow-hidden pb-16 bg-slate-50">
-            <div className="flex gap-5 max-md:flex-col">
+        <div className="overflow-hidden pb-16 bg-slate-50 h-screen">
+            <div className="flex gap-5 max-md:flex-col h-full">
                 <Sidebar />
-                <main className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full">
+                <main className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full h-full">
+                <div className='overflow-auto'>
                     <header className="flex items-center justify-between px-8 py-10 text-4xl text-black bg-white max-md:max-w-full">
                         <span>Welcome Admin</span>
                         <MdNetworkCheck className="w-[50] h-[50] mr-10" />
@@ -59,8 +57,10 @@ function Dashboard() {
                             </div>
                         </div>
                     </section>
-                    {renderActivePage()}
-                    <Pagination />
+                    <div className="flex-1 ">
+                        {renderActivePage()}
+                    </div>
+                </div>
                 </main>
             </div>
         </div>

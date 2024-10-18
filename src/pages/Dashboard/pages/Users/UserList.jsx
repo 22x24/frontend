@@ -1,5 +1,6 @@
 import React from 'react';
 import UserListItem from './UserListItem';
+import Pagination from './Pagination';
 
 const users = [
   { name: 'John Doe', maxBandwidth: '100 Mbps', bandwidthLimit: '50 Mbps' },
@@ -28,6 +29,7 @@ function UserList() {
           <hr className="shrink-0 mt-5 max-w-full border-gray-300 border-solid border-[1px] w-full" />
           </React.Fragment>
       ))}
+      <Pagination />
     </div>
   );
 }

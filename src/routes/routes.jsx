@@ -4,7 +4,7 @@ import Dashboard from '../pages/Dashboard/index';
 
 const routes = [
   {
-    path:"/auth",
+    path:"/",
     element: <Auth />,
   },
   {

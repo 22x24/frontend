@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NetworkStats from './Components/NetworkStats';
-import ClientList from './ClientList';
-import ServerInfo from './ServerInfo';
+import ClientList from './Components/ClientList';
+import ServerInfo from './Components/ServerInfo';
 
 function NetworkPage() {
   const [networkData, setNetworkData] = useState({
@@ -23,7 +23,8 @@ function NetworkPage() {
           { id: 1, name: 'Client1', maxBandwidth: '5Mbps', bandwidthLimit: '4Mbps', isOnline: true },
           { id: 2, name: 'Client2', maxBandwidth: '5Mbps', bandwidthLimit: '4Mbps', isOnline: true },
           { id: 3, name: 'Client3', maxBandwidth: '5Mbps', bandwidthLimit: '4Mbps', isOnline: true },
-          { id: 4, name: 'Client4', maxBandwidth: '5Mbps', bandwidthLimit: '4Mbps', isOnline: false }
+          { id: 4, name: 'Client4', maxBandwidth: '5Mbps', bandwidthLimit: '4Mbps', isOnline: false },
+          // { id: 5, name: 'Client5', maxBandwidth: '5Mbps', bandwidthLimit: '4Mbps', isOnline: false }
         ]
       };
       setNetworkData(data);

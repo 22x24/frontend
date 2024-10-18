@@ -12,7 +12,7 @@ function Sidebar() {
   const navItems = [
     { name: 'Users', icon: FaUsers },
     { name: 'Network', icon: FaNetworkWired },
-    { name: 'Dashboard', icon: FaTachometerAlt }
+    // { name: 'Dashboard', icon: FaTachometerAlt }
   ];
 
   return (
