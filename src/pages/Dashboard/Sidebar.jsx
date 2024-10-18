@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '@chakra-ui/react';
 import { FaUsers, FaNetworkWired, FaTachometerAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux'; // Import useDispatch and useSelector
-import { setActivePage } from './store/pageSlice'; // Import the action
+import { setActivePage } from '../../store/pageSlice'; // Import the action
 
 function Sidebar() {
 

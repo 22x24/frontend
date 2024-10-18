@@ -3,6 +3,7 @@ import { FaUser, FaNetworkWired, FaTachometerAlt } from 'react-icons/fa'; // Imp
 import { MdNetworkCheck } from 'react-icons/md'; // Import a different network icon
 import Sidebar from './Sidebar';
 import UserList from './pages/Users/UserList';
+import Stats from './pages/Users/UserStats/BandwidthConsumption';
 import NetworkPage from './pages/Network/NetworkPage';
 import DashboardPage from './pages/Dashboard/DashboardPage';
 import Pagination from './Pagination';
@@ -21,6 +22,8 @@ function Dashboard() {
                 return <NetworkPage />;
             case 'Dashboard':
                 return <DashboardPage />;
+            case 'Stats':
+                return <Stats />;
             default:
                 return <UserList />;
         }
@@ -42,7 +45,7 @@ function Dashboard() {
     return (
         <div className="overflow-hidden pb-16 bg-slate-50">
             <div className="flex gap-5 max-md:flex-col">
-                <Sidebar activePage={activePage} setActivePage={setActivePage} />
+                <Sidebar />
                 <main className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full">
                     <header className="flex items-center justify-between px-8 py-10 text-4xl text-black bg-white max-md:max-w-full">
                         <span>Welcome Admin</span>

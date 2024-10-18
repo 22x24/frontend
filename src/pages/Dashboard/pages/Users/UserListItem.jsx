@@ -1,9 +1,14 @@
 import React from 'react';
 import { FaEdit, FaEye } from 'react-icons/fa'; // Assuming you are using react-icons
+import { useDispatch } from 'react-redux'; // Import useDispatch and useSelector
+import { setActivePage } from '../../../../store/pageSlice'; // Import the action
+
 
 function UserListItem({ name, maxBandwidth, bandwidthLimit }) {
+  const dispatch = useDispatch();
+
   const handleClick = () => {
-    window.location.href = '/dashboard/stats';
+    dispatch(setActivePage("Stats"))
   };
 
   return (
