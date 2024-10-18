@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser, FaNetworkWired, FaTachometerAlt } from 'react-icons/fa'; // Import icons
+import { MdNetworkCheck } from 'react-icons/md'; // Import a different network icon
 import Sidebar from './Sidebar';
 import UserList from './pages/Users/UserList';
 import NetworkPage from './pages/Network/NetworkPage';
@@ -40,13 +41,16 @@ function Dashboard() {
             <div className="flex gap-5 max-md:flex-col">
                 <Sidebar activePage={activePage} setActivePage={setActivePage} />
                 <main className="flex flex-col ml-5 w-[82%] max-md:ml-0 max-md:w-full">
-                    <header className="px-12 py-14 text-4xl text-black bg-white max-md:px-5 max-md:max-w-full">
-                        Welcome Admin
+                    <header className="flex items-center justify-between px-8 py-10 text-4xl text-black bg-white max-md:max-w-full">
+                        <span>Welcome Admin</span>
+                        <MdNetworkCheck className="w-[50] h-[50] mr-10" />
                     </header>
                     <section className="flex flex-wrap gap-5 justify-between items-center px-12 py-3 bg-gray-300 max-md:px-5 max-md:max-w-full">
                         <h2 className="text-4xl font-medium text-black">{activePage}</h2>
                         <div className="flex flex-col justify-center items-end px-20 py-3 bg-white rounded-2xl max-md:px-5 max-md:max-w-full">
-                            {renderIcon()}
+                            <div className="flex justify-center items-center w-[34px] h-[34px]">
+                                {renderIcon()}
+                            </div>
                         </div>
                     </section>
                     {renderActivePage()}
