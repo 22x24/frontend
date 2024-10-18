@@ -1,16 +1,17 @@
 import React from "react";
 
-function InputField({ label, id, type = "text", placeholder }) {
+function InputField({ label, value, onChange, placeholder, type = "text" }) {
   return (
-    <>
-      <label htmlFor={id} className="self-start mt-4 text-xl">{label}</label>
+    <div className="mb-4">
+      <label className="block text-xl text-white mb-2 text-center">{label}</label>
       <input
         type={type}
-        id={id}
+        value={value}
+        onChange={onChange}
         placeholder={placeholder}
-        className="px-3 py-2.5 mt-1.5 w-full whitespace-nowrap bg-gray-800 rounded-md text-zinc-500 max-md:pr-5 max-md:max-w-full"
+        className="w-full px-3 py-2.5 bg-gray-800 rounded-md text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-center"
       />
-    </>
+    </div>
   );
 }
 
