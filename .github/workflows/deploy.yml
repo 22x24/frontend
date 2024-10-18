@@ -3,7 +3,7 @@ name: Deploy to Netlify
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to main branch
+      - main  # or your preferred branch
 
 jobs:
   build:
@@ -16,13 +16,20 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Use the appropriate Node.js version for your project
+          node-version: 18  # Choose the right version for your project
 
       - name: Install dependencies
         run: npm install
 
+      - name: Create Netlify _redirects file
+        run: |
+          echo "/*    /index.html   200" > ./public/_redirects
+
       - name: Build the project
         run: npm run build
+
+      - name: Copy _redirects file to dist
+        run: cp ./public/_redirects ./dist/_redirects
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1
