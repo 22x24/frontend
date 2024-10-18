@@ -1,8 +1,14 @@
 import React from 'react';
 import { Icon } from '@chakra-ui/react';
 import { FaUsers, FaNetworkWired, FaTachometerAlt } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux'; // Import useDispatch and useSelector
+import { setActivePage } from './store/pageSlice'; // Import the action
 
-function Sidebar({ activePage, setActivePage }) {
+function Sidebar() {
+
+  const dispatch = useDispatch(); // Initialize dispatch
+  const activePage = useSelector((state) => state.page.activePage); // Get activePage from Redux
+
   const navItems = [
     { name: 'Users', icon: FaUsers },
     { name: 'Network', icon: FaNetworkWired },
@@ -20,7 +26,9 @@ function Sidebar({ activePage, setActivePage }) {
               className={`flex items-center gap-4 py-4 px-2 mt-${index === 0 ? '0' : '6'} whitespace-nowrap cursor-pointer ${
                 activePage === item.name ? 'text-white bg-gray-700 rounded-md' : ''
               }`}
-              onClick={() => setActivePage(item.name)}
+              // onClick={() => setActivePage(item.name)}
+              onClick={() => dispatch(setActivePage(item.name))} // Dispatch setActivePage action
+
             >
               <Icon as={item.icon} className="object-contain shrink-0 w-8 aspect-square" />
               <span className="text-left">{item.name}</span>

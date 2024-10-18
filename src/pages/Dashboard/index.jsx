@@ -6,9 +6,12 @@ import UserList from './pages/Users/UserList';
 import NetworkPage from './pages/Network/NetworkPage';
 import DashboardPage from './pages/Dashboard/DashboardPage';
 import Pagination from './Pagination';
+import { useSelector } from 'react-redux'; // Import useSelector
+
 
 function Dashboard() {
-    const [activePage, setActivePage] = useState('Users');
+    // const [activePage, setActivePage] = useState('Users');
+    const activePage = useSelector((state) => state.page.activePage); // Get activePage from Redux
 
     const renderActivePage = () => {
         switch (activePage) {
