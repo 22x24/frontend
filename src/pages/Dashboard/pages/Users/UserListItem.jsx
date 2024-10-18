@@ -1,15 +1,16 @@
 import React from 'react';
+import { FaEdit, FaEye } from 'react-icons/fa'; // Assuming you are using react-icons
 
 function UserListItem({ name, maxBandwidth, bandwidthLimit }) {
   return (
-    <div className="flex gap-10 items-start mt-4 ml-8 max-w-full text-neutral-900 w-[1299px]">
-      <div className="mt-2.5">{name}</div>
-      <div className="grow shrink mt-2.5 w-[161px]">{maxBandwidth}</div>
-      <div className="flex gap-9 text-black">
+    <div className="flex gap-4 items-center mt-4 ml-8 max-w-full text-neutral-900 w-[1299px]">
+      <div className="w-1/4">{name}</div>
+      <div className="w-1/4">{maxBandwidth}</div>
+      <div className="w-1/4 flex items-center gap-2">
         <div>{bandwidthLimit}</div>
-        <img loading="lazy" src="http://b.io/ext_13-" className="object-contain shrink-0 w-8 aspect-[0.97]" alt="" />
+        <FaEdit className="object-contain shrink-0 w-5" />
       </div>
-      <img loading="lazy" src="http://b.io/ext_14-" className="object-contain shrink-0 aspect-square w-[38px]" alt="" />
+      <FaEye className="object-contain shrink-0 w-5" />
     </div>
   );
 }
