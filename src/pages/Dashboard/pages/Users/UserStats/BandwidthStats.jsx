@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
+import { UserContext } from '../../../../../provider/userProvider';
 
 function BandwidthStat({ color, title, value }) {
   return (
@@ -14,16 +15,17 @@ function BandwidthStat({ color, title, value }) {
 }
 
 function BandwidthStats({ id }) {
-  const user = useSelector((state) => state.user.users.find((user) => user.id === id));
+  const {users} = useContext(UserContext)
+  const user = users.find(user => user.userId === id)
 
-  if (!user) {
+  /*if (!user) {
     return <div>User not found</div>;
-  }
+  }*/
 
   const stats = [
-    { color: "green-500", title: "Max bandwidth", value: user.stats["Max bandwidth"] },
-    { color: "yellow-400", title: "Bandwidth limit", value: user.stats["Bandwidth limit"] },
-    { color: "blue-500", title: "Highest MIR reached", value: user.stats["Highest MIR reached"] },
+    { color: "green-500", title: "Max bandwidth", value: user.plan },
+    { color: "yellow-400", title: "Bandwidth limit", value: user.bandWidth },
+    { color: "blue-500", title: "Highest MIR reached", value: user.mir },
   ];
 
   return (

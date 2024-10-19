@@ -2,6 +2,7 @@ import React from 'react';
 import ClientCard from './ClientCard';
 
 function ClientList({ clients }) {
+  console.log(clients)
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="relative w-full">
@@ -9,7 +10,7 @@ function ClientList({ clients }) {
         <div className="flex justify-around w-full gap-5 max-md:flex-col">
           {clients.map((client, index) => (
             <div
-              key={client.id}
+              key={client.userId}
               className="border-solid border-[3px] border-zinc-400 h-[72px] w-[3px]"
             />
           ))}
@@ -17,7 +18,7 @@ function ClientList({ clients }) {
       </div>
       <div className="flex justify-around gap-5 max-w-full w-[1305px] max-md:flex-col">
         {clients.map((client) => (
-          <ClientCard key={client.id} {...client} />
+          <ClientCard key={client.userId} {...client} />
         ))}
       </div>
     </div>

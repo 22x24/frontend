@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActivePage } from '../../../../../store/pageSlice'; // Update this path to your actual actions file
 import BandwidthStats from './BandwidthStats';
 import MIRGraph from './MIRGraph';
 import { FaArrowLeft } from 'react-icons/fa'; // Import an icon from react-icons
+import { UserContext } from '../../../../../provider/userProvider';
 
 function BandwidthConsumption() {
-  const dispatch = useDispatch();
-  const selectedUserId = useSelector((state) => state.page.currentUserId); // Get activePage from Redux
-  console.log("selected user id: ", selectedUserId);
-
+  //const dispatch = useDispatch();
+  //const selectedUserId = useSelector((state) => state.page.currentUserId); // Get activePage from Redux
+  //console.log("selected user id: ", selectedUserId);
+  console.log("whajhsvhde")
+  const {selectedUserId}=useContext(UserContext)
   const handleReturnClick = () => {
     dispatch(setActivePage("Users"));
   };

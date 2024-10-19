@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { FaEdit, FaEye } from 'react-icons/fa'; // Assuming you are using react-icons
 import { useDispatch } from 'react-redux'; // Import useDispatch and useSelector
 import { setActivePage, setCurrentUserId } from '../../../../store/pageSlice'; // Import the action
-
-function UserListItem({id, name, maxBandwidth, bandwidthLimit }) {
+import {Button} from "@/components/ui/button"
+ function UserListItem({userId, username, plan, bandWidth }) {
   const dispatch = useDispatch();
   const [isOverlayVisible, setOverlayVisible] = useState(false);
-  const [newBandwidthLimit, setNewBandwidthLimit] = useState(bandwidthLimit);
+  const [newBandwidthLimit, setNewBandwidthLimit] = useState(bandWidth);
 
   const handleClick = () => {
     dispatch(setActivePage("Stats"));
@@ -27,15 +27,28 @@ function UserListItem({id, name, maxBandwidth, bandwidthLimit }) {
 
   return (
     <div className="relative">
-      <div className="flex gap-4 items-center mt-4 ml-8 max-w-full text-neutral-900 w-[1299px]">
-        <div className="w-1/4">{name}</div>
-        <div className="w-1/4">{maxBandwidth}</div>
+      {/*<div className="flex gap-4 items-center mt-4 ml-8 max-w-full text-neutral-900 w-[1299px]">
+        <div className="w-1/4">{username}</div>
+        <div className="w-1/4">{plan}</div>
         <div className="w-1/4 flex items-center gap-2">
-          <div>{bandwidthLimit}</div>
+          <div>{bandWidth}</div>
           <FaEdit onClick={handleEditClick} className="object-contain shrink-0 w-5 cursor-pointer" />
         </div>
         <FaEye onClick={handleClick} className="object-contain shrink-0 w-5 cursor-pointer" />
-      </div>
+      </div>*/}
+      <tr className='w-[1000px]'>
+   <td className="px-6 py-4 whitespace-nowrap">{username}</td>
+   <td className="px-6 py-4 whitespace-nowrap">{plan}</td>
+   <td className="px-6 py-4 whitespace-nowrap">{bandWidth}</td>
+   <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+     <Button variant="ghost" size="sm" className="text-indigo-600 hover:text-indigo-900">
+       <FaEdit className="h-4 w-4" />
+     </Button>
+     <Button variant="ghost" size="sm" className="text-indigo-600 hover:text-indigo-900">
+       <FaEye className="h-4 w-4" />
+     </Button>
+   </td>
+   </tr>
 
       {isOverlayVisible && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
