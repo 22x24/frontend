@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-function MIRGraph({ userId, title = "MIR" }) {
-  const user = useSelector((state) => state.user.users.find(user => user.id === userId));
+function MIRGraph({ id, title = "MIR" }) {
+  const user = useSelector((state) => state.user.users.find((user) => user.id === id));
+
 
 
   if (!user) {

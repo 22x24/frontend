@@ -16,9 +16,10 @@ function Sidebar() {
   ];
 
   return (
-    <aside className="flex flex-col w-[18%] h-screen max-md:ml-0 max-md:w-full">
-      <nav className="flex flex-col items-start px-12 py-10 mx-auto w-full text-xl bg-gray-900 text-neutral-300 max-md:px-5 h-full">
-        <h1 className="text-4xl text-center mb-16">Network Manager</h1>
+    <aside className="flex flex-col w-[280px] h-screen max-md:ml-0 max-md:w-full">
+      <nav className="flex flex-col items-start py-10 mx-auto w-full text-xl bg-gray-900 text-neutral-300 max-md:px-5 h-full">
+        <h1 className="text-3xl text-center mb-10 p-4">Network Manager</h1>
+        <div className="w-full h-px bg-white mb-8"></div>
         <ul className="w-full">
           {navItems.map((item, index) => (
             <li
@@ -34,7 +35,7 @@ function Sidebar() {
           ))}
         </ul>
         <button
-          className="self-center mt-auto py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors duration-300"
+          className="self-center mt-auto py-2 px-4 text-white hover:underline hover:font-bold transition-colors duration-300"
           onClick={() => window.location.href = '/'} // Navigate to home page
         >
           Logout

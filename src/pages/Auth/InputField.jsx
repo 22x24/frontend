@@ -9,7 +9,7 @@ function InputField({ label, value, onChange, placeholder, type = "text" }) {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full px-3 py-2.5 bg-gray-800 rounded-md text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-center"
+        className="w-full px-3 py-2.5 bg-gray-800 rounded-md placeholder-zinc-500 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-center"
       />
     </div>
   );
