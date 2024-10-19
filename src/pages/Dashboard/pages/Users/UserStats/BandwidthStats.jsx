@@ -14,7 +14,7 @@ function BandwidthStat({ color, title, value }) {
 }
 
 function BandwidthStats({ id }) {
-  const user = useSelector((state) => state.users.find((user) => user.id === id));
+  const user = useSelector((state) => state.user.users.find((user) => user.id === id));
 
   if (!user) {
     return <div>User not found</div>;
